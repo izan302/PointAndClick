@@ -18,6 +18,14 @@ public class GameEvents : MonoBehaviour
     /*====================================================================
                                     Interactables
     ======================================================================*/
+    public event Action<String> OnMouseOverInteractable;
+    public void TriggerMouseOverInteractable(String _InteractableName) {
+        OnMouseOverInteractable?.Invoke(_InteractableName);
+    }
+    public event Action OnMouseExitInteractable;
+    public void TriggerMouseExitInteractable() {
+        OnMouseExitInteractable?.Invoke();
+    }
     public event Action OnGive;
     public event Action OnPickUp;
     public event Action OnUse;
