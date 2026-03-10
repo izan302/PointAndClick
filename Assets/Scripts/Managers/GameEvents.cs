@@ -26,15 +26,37 @@ public class GameEvents : MonoBehaviour
     public void TriggerMouseExitInteractable() {
         OnMouseExitInteractable?.Invoke();
     }
-    public event Action OnGive;
-    public event Action OnPickUp;
-    public event Action OnUse;
 
-    public event Action OnOpen;
-    public event Action OnLookAt;
-    public event Action OnPush;
+    // Buttons 
+    public event Action<String> OnGive;
 
-    public event Action OnClose;
-    public event Action OnTalkTo;
-    public event Action OnPull;
+    public event Action<String> OnPickUp;
+    public event Action<String> OnUse;
+
+    public event Action<String> OnOpen;
+    public event Action<String> OnLookAt;
+    public event Action<String> OnPush;
+
+    public event Action<String> OnClose;
+    public event Action<String> OnTalkTo;
+    public event Action<String> OnPull;
+    
+    // --- TRIGGERS ---
+    public void TriggerOnGive(string _Text) => OnGive?.Invoke(_Text);
+    
+    public void TriggerOnPickUp(string _Text) => OnPickUp?.Invoke(_Text);
+    
+    public void TriggerOnUse(string _Text) => OnUse?.Invoke(_Text);
+
+    public void TriggerOnOpen(string _Text) => OnOpen?.Invoke(_Text);
+    
+    public void TriggerOnLookAt(string _Text) => OnLookAt?.Invoke(_Text);
+    
+    public void TriggerOnPush(string _Text) => OnPush?.Invoke(_Text);
+
+    public void TriggerOnClose(string _Text) => OnClose?.Invoke(_Text);
+    
+    public void TriggerOnTalkTo(string _Text) => OnTalkTo?.Invoke(_Text);
+    
+    public void TriggerOnPull(string _Text) => OnPull?.Invoke(_Text);
 }

@@ -29,10 +29,10 @@ public class InputManager : MonoBehaviour
         Vector3 l_MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         l_MousePosition.z = 0;
 
-        RaycastHit2D l_RaycastHit = Physics2D.Raycast(l_MousePosition, Vector2.zero, 0f, m_MapLayerMask);
-        if (l_RaycastHit.collider != null)
+        RaycastHit2D l_MapRaycastHit = Physics2D.Raycast(l_MousePosition, Vector2.zero, 0f, m_MapLayerMask);
+        if (l_MapRaycastHit.collider != null)
         {
-            return l_RaycastHit.point;
+            return l_MapRaycastHit.point;
         }
        return Vector3.negativeInfinity;
     }

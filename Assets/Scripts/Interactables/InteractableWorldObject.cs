@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public abstract class InteractableWorldObject : MonoBehaviour
+public class InteractableWorldObject : MonoBehaviour
 {
+    [SerializeField] private InteractableBase m_Data;
     [SerializeField] protected Transform m_WalkToPoint;
     void Start()
     {
@@ -10,10 +11,16 @@ public abstract class InteractableWorldObject : MonoBehaviour
 
     void OnMouseOver()
     {
-       
+        if (m_Data != null)
+            Debug.Log($"In Hotspot: {m_Data.InteractbleName}");
+        else
+            Debug.LogWarning($"Missing Scriptable Object on {gameObject.name}!");
     }
     void OnMouseExit()
     {
-        Debug.Log("Out Hotspot");
+        if (m_Data != null)
+            Debug.Log($"Out Hotspot: {m_Data.InteractbleName}");
+        else
+            Debug.LogWarning($"Missing Scriptable Object on {gameObject.name}!");
     }
 }
